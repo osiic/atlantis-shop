@@ -5,13 +5,18 @@ import { signIn, signOut } from "next-auth/react";
 export function Login({ session }) {
   if (session) {
     return (
-      <button
-        onClick={() => signOut()}
-        type="button"
-        className="px-5 py-1 rounded border-2 border-zinc-950 text-xs"
-      >
-        Sign out
-      </button>
+      <div className="flex items-center" >
+        <span>
+          {session?.name}
+        </span>
+        <button
+          onClick={() => signOut()}
+          type="button"
+          className="px-5 py-1 rounded border-2 border-zinc-950 text-xs"
+        >
+          Sign out
+        </button>
+      </div>
     );
   }
 
