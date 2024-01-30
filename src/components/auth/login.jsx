@@ -9,9 +9,7 @@ export function Login() {
   if (session?.data?.user?.name) {
     return (
       <div className='flex items-center gap-1'>
-        <Link href='/dashboard'>
-          {`${session?.data?.user?.name} Dashboard`}{' '}
-        </Link>
+        <Link href='/dashboard'>{`${session?.data?.user?.name}`}</Link>
         <button
           onClick={() => signOut()}
           type='button'
