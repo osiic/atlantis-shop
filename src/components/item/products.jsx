@@ -1,4 +1,4 @@
-import { Product } from "./Product";
+import { Product } from "./product";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -17,7 +17,7 @@ export function Products() {
           return (
             <a
               href={`/products/${item?.id}`}
-              className="bg-sky-50 p-1 rounded "
+              className="border-2 border-zinc-800 p-1 rounded "
               key={item?.id}
             >
               <Product item={item} />

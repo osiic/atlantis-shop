@@ -1,9 +1,11 @@
-import { Products } from "./_Components/Products";
+import { Nav } from "@/components/auth/nav";
+import { Products } from "@/components/item/products";
 
 export default function Home() {
   return (
     <>
-      <Products />;
+      <Nav />
+      <Products />
     </>
   );
 }
