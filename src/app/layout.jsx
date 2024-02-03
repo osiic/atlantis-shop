@@ -1,12 +1,13 @@
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
 
-import { getAuth } from '@/lib/auth';
+// import { getAuth } from '@/lib/auth';
+import { getServerSession } from 'next-auth';
 import { Provider } from '@/components/auth/Provider';
 import { Nav } from '@/components/auth/nav';
 
 const inter = Inter({ subsets: ['latin'] });
-const session = await getAuth();
+const session = await getServerSession();
 
 export default function RootLayout({ children }) {
   return (

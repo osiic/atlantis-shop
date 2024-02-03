@@ -1,5 +1,5 @@
-import NextAuth, { getServerSession } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import NextAuth from 'next-auth';
+import GoogleProvider from 'next-auth/providers/google';
 
 const config = {
   providers: [
@@ -10,5 +10,4 @@ const config = {
   ],
 };
 
-export const getAuth = async () => await getServerSession(config);
 export const handler = NextAuth(config);
