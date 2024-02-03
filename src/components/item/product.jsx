@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export function Product({ item, title = 'Buy', onClick }) {
   return (
     <div className=' flex'>
       <Image
-        src={`/${item}.jpg`}
+        src={`/${item?.image}.jpg`}
         className='flex aspect-square w-5/12 items-center justify-center rounded border-2 border-zinc-950 text-sm text-gray-500'
         alt='Picture'
         width='100'
@@ -14,12 +15,13 @@ export function Product({ item, title = 'Buy', onClick }) {
         <h2>{item?.title} </h2>
         <span className='-mt-1 text-xs text-gray-800 '>Rp{item?.price}</span>
         {title === 'Buy' ? (
-          <button
+          <Link
+            href={`/product/${item?.title}`}
             type='button'
-            className='button mt-2 bg-gray-950 text-sm text-white'
+            className=' mt-2 rounded bg-gray-950 text-center text-sm text-white'
           >
             {title}
-          </button>
+          </Link>
         ) : (
           <button
             type='button'
