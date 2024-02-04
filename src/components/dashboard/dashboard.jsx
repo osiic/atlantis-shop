@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Products } from '../item/products';
 import { Form } from './form';
+import Link from 'next/link';
 
 export function Dashboard({ dataProducts }) {
   const [form, setForm] = useState({});
@@ -25,7 +26,7 @@ export function Dashboard({ dataProducts }) {
       />
       <main className='m-auto flex max-w-5xl flex-col justify-between gap-3 px-[7%] py-3'>
         <div className='jitems-center flex justify-between'>
-          <h1>Dashboard</h1>
+          <Link href='/'>Home | Dashboard</Link>
           <button
             type='button'
             onClick={() => {

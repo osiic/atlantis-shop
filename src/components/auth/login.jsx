@@ -1,33 +1,31 @@
-'use client';
-
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { nextAuthConfig } from '@/lib/auth';
+import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 
-export function Login() {
-  const session = useSession();
+const session = await getServerSession(nextAuthConfig);
 
-  if (session?.data?.user?.name) {
+export function Login() {
+  if (session?.user?.name) {
     return (
       <div className='flex items-center gap-1'>
-        <Link href='/dashboard'>{`${session?.data?.user?.name}`}</Link>
-        <button
-          onClick={() => signOut()}
+        <Link href='/dashboard'>{`${session?.user?.name}`}</Link>
+        <Link
+          href='api/auth/signout'
           type='button'
           className='rounded border-2 border-zinc-950 px-5 py-1 text-xs'
         >
           Sign out
-        </button>
+        </Link>
       </div>
     );
   }
 
   return (
-    <button
-      type='button'
-      onClick={() => signIn()}
+    <Link
+      href='/api/auth/signin'
       className='rounded border-2 border-zinc-950 bg-gray-950 px-5 py-1 text-xs text-white'
     >
       Sign In
-    </button>
+    </Link>
   );
 }
