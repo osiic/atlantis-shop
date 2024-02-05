@@ -1,10 +1,12 @@
-import { nextAuthConfig } from '@/lib/auth';
-import { getServerSession } from 'next-auth';
+// mark as client component
+"use client";
+
+// importing necessary functions
+import { useSession } from "next-auth/react"
 import Link from 'next/link';
 
-const session = await getServerSession(nextAuthConfig);
-
 export function Login() {
+  const { data: session } = useSession()
   if (session?.user?.name) {
     return (
       <div className='flex items-center gap-1'>
