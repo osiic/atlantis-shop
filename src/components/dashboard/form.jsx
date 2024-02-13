@@ -1,6 +1,6 @@
 import { FiXCircle } from 'react-icons/fi';
 import { SubmitButton } from './submit-button';
-import { actionCreate } from '@/lib/action';
+import { actionCreate, actionUpdate } from '@/lib/action';
 
 export function Form({ title = 'Create', status = false, setForm, data }) {
   function closeForm(kondisi = false) {
@@ -14,9 +14,10 @@ export function Form({ title = 'Create', status = false, setForm, data }) {
     >
       <div className='flex h-screen w-screen items-center justify-center '>
         <form
-          action={title === 'Create' ? actionCreate : ''}
+          action={title === 'Create' ? actionCreate : actionUpdate}
           className='flex w-4/12 flex-col gap-1 rounded-md bg-white px-5 py-3'
         >
+          <input type='hidden' name='id' id='id' defaultValue={data?.id} />
           <div className='mb-1 flex justify-between'>
             <h2>{title}</h2>
 

@@ -26,7 +26,7 @@ export function Dashboard({ dataProducts }) {
       />
       <main className='m-auto flex max-w-5xl flex-col justify-between gap-3 px-[7%] py-3'>
         <div className='jitems-center flex justify-between'>
-          <Link href='/'>Home | Dashboard</Link>
+          <Link href='/' className='text-xl font-medium '>Dashboard</Link>
           <button
             type='button'
             onClick={() => {
@@ -39,10 +39,11 @@ export function Dashboard({ dataProducts }) {
         </div>
         <Products
           onClick={(item) => {
-            openForm({ title: 'Edit', data: item });
+            openForm('Edit', item);
           }}
           dataProducts={dataProducts}
           title='Edit'
+          deleteForm={true}
         />
       </main>
     </>

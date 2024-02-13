@@ -10,11 +10,27 @@ export async function createProduct(data) {
   return await prisma.product.create({ data });
 }
 
-export async function updateProduct(data) {
+export async function updateProduct(data, id) {
   return await prisma.product.update({
     where: {
-      id: data.id,
+      id,
     },
     data,
   });
 }
+
+export async function deleteProduct(id) {
+  return await prisma.product.delete({
+    where: {
+      id
+    }
+  })
+}
+
+export async function getProdct(title) {
+  return await prisma.product.findFirst({
+    where: {
+      title
+    }
+  })
+} 

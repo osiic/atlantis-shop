@@ -1,9 +1,10 @@
+import { ProductPage } from '@/components/product/product';
 
-
+export const dynamic = 'force-dynamic';
 export default function Page({ params }) {
   return (
     <>
-      <div>My Post: {params.slug}</div>
+      <ProductPage productName={params.slug} />
     </>
-  )
+  );
 }
