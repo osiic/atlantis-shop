@@ -32,7 +32,6 @@ export function ButtonBeli({ item }) {
     });
 
     const reqData = await req.json();
-    console.log(reqData);
 
     window.snap.pay(reqData.token);
   }

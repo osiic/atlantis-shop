@@ -1,9 +1,9 @@
 import { Product } from './product';
 
 export function Products({ dataProducts, onClick, title, deleteForm }) {
-  if (!dataProducts) {
+  if (dataProducts.length === 0) {
     return (
-      <div className='flex'>
+      <div className='flex justify-center pt-[30vh]'>
         <h1>NO HAVE ITEM</h1>
       </div>
     );

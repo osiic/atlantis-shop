@@ -3,7 +3,8 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export async function getProdcts() {
-  return await prisma.product.findMany();
+  const products = await prisma.product.findMany();
+  return products;
 }
 
 export async function createProduct(data) {
@@ -22,15 +23,15 @@ export async function updateProduct(data, id) {
 export async function deleteProduct(id) {
   return await prisma.product.delete({
     where: {
-      id
-    }
-  })
+      id,
+    },
+  });
 }
 
 export async function getProdct(title) {
   return await prisma.product.findFirst({
     where: {
-      title
-    }
-  })
-} 
+      title,
+    },
+  });
+}
