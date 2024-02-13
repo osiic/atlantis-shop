@@ -9,9 +9,9 @@ export function SubmitButton({ title, closeForm }) {
       closeForm('hidden');
       setTimeout(() => {
         closeForm();
-      }, 2000);
+      }, 8000);
     }
-  }, 500);
+  }, 4000);
 
   return (
     <div className='mt-3 w-full'>

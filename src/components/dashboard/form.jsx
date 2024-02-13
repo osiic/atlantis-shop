@@ -1,3 +1,4 @@
+'use client'
 import { FiXCircle } from 'react-icons/fi';
 import { SubmitButton } from './submit-button';
 import { actionCreate, actionUpdate } from '@/lib/action';
