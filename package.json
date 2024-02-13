@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "npm run prisma:gen && next build",
     "start": "next start",
     "lint": "next lint",
+    "prisma:gen": "prisma generate && prisma migrate dev && prisma db pull ",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
