@@ -1,6 +1,14 @@
 import { Product } from './product';
 
 export function Products({ dataProducts, onClick, title, deleteForm }) {
+  if (!dataProducts) {
+    return (
+      <div className='flex'>
+        <h1>NO HAVE ITEM</h1>
+      </div>
+    );
+  }
+
   return (
     <div className='grid grid-cols-3 gap-2'>
       {dataProducts.map((item) => {
