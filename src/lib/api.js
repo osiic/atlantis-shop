@@ -3,8 +3,15 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export async function getProdcts() {
-  const products = await prisma.product.findMany();
-  return products;
+  try {
+    const products = await prisma.product.findMany();
+    console.log(products);
+    return products;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    await prisma.$disconnect();
+  }
 }
 
 export async function createProduct(data) {
